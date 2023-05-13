@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   
+<video autoplay muted loop id="myVideo">
+    <source src="images/video_2023-05-13_22-32-18.mp4" type="video/mp4">
+    
+  </video>
 
 <style type="text/css">
 body {
@@ -10,10 +14,14 @@ body {
     align-items: center;
     font-size: 110;
     color: #8b0000;
-    background-image: url('images/800x800bb.jpg');
-    background-size: 99%;
-    background-repeat: no-repeat;
-    font-family:  "Monaco",Inconsolata;}
+  #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
 .site-border {
     text-align:center;
     width:100%;
