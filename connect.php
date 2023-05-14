@@ -2,7 +2,7 @@
 $serverName = "localhost";
 $userName = "dfdf@gmaio.oma";
 $password = "qz]58s3mq9U(To41";
-$dbName = "test_sql";
+$dbName = "test2_sql";
 
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
@@ -19,21 +19,23 @@ $sql = "CREATE TABLE IF NOT EXISTS contacts (
 )";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Table created successfully!";
+    // echo "Table created successfully!";
 } else {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
-$Name = mysqli_real_escape_string($conn, $_POST['Name']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$Message = mysqli_real_escape_string($conn, $_POST['Message']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $Name = mysqli_real_escape_string($conn, $_POST['Name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $Message = mysqli_real_escape_string($conn, $_POST['Message']);
 
-$sql = "INSERT INTO contacts (Name, email, Message) VALUES ('$Name', '$email', '$Message')";
+    $sql = "INSERT INTO contacts (Name, email, Message) VALUES ('$Name', '$email', '$Message')";
 
-if (mysqli_query($conn, $sql)) {
-    echo "Message sent successfully!";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    if (mysqli_query($conn, $sql)) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 }
 
 mysqli_close($conn);
