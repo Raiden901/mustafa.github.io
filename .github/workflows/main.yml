@@ -1,18 +1,36 @@
-name: Perl
+- name: Setup Perl environment
+  # You may pin to the exact commit or the version.
+  # uses: shogo82148/actions-setup-perl@b9fdc2813ba5e0239dd7bce477e5f37e86d145cc
+  uses: shogo82148/actions-setup-perl@v1.21.0
+  with:
+    # The Perl version to download (if necessary) and use. Example: 5.30.0
+    perl-version: # optional
+    # File containing the Perl version. Example: .perl-version
+    perl-version-file: # optional
+    # The distribution of Perl binary.
+"default" and "strawberry" are accepted.
+"default" is the custom binaries for actions-setup-perl. It is available on Linux, macOS, and Windows.
+"strawberry" is from http://strawberryperl.com/ . It is available on Windows and falls back to default on other platform.
 
-on:
-  push:
-    branches:
-      - main
+    distribution: # optional, default is default
+    # enables multi threading options(-Duseithreads).
+"true" and "false" are accepted.
+On Linux and macOS, the default value is false (multi threading is disabled).
+On Windows, this option is ignored, multi-threading is always enabled.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Perl
-      uses: perl/setup-perl@v1
-      with:
-        perl-version: '5.32'
-    - name: Run script
-      run: perl script.pl
+    multi-thread: # optional
+    # install CPAN modules from your cpanfile with the specified installer.
+cpanm(App::cpanminus), cpm(App::cpm), and carton(Carton) are available.
+By default, any CPAN modules are not installed.
+
+    install-modules-with: # optional
+    # extra argument for CPAN module installer.
+
+    install-modules-args: # optional
+    # List of one or more CPAN modules, separated by a newline \n character.
+
+    install-modules: # optional
+    # enable caching when install CPAN modules.
+    enable-modules-cache: # optional, default is true
+    # working directory.
+    working-directory: # optional, default is .
