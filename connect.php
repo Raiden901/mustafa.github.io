@@ -2,14 +2,17 @@
 $serverName = "localhost";
 $userName = "root";
 $password = "))gSg2Kcug2OItJ1";
-$dbName = "tests.sql";
+$dbName = "tests"; // Assuming "tests" is your database name
 
+// Create connection
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
+// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// Create table query
 $sql = "CREATE TABLE IF NOT EXISTS contacts (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(30) NOT NULL,
@@ -18,25 +21,28 @@ $sql = "CREATE TABLE IF NOT EXISTS contacts (
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
-if (mysqli_query($conn, $sql)) {
-    // echo "Table created successfully!";
-} else {
+// Execute query
+if (!mysqli_query($conn, $sql)) {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Sanitize and validate input
     $Name = mysqli_real_escape_string($conn, $_POST['myName']);
     $email = mysqli_real_escape_string($conn, $_POST['myemail']);
     $Message = mysqli_real_escape_string($conn, $_POST['myMessage']);
 
-    $sql = "INSERT INTO contacts (myName, myemail, myMessage) VALUES ('$myName', '$myemail', '$myMessage')";
+    // Insert data into the database
+    $insertSql = "INSERT INTO contacts (Name, email, Message) VALUES ('$Name', '$email', '$Message')";
 
-mt    if (mysqli_query($conn, $sql)) {
+    if (mysqli_query($conn, $insertSql)) {
         echo "Message sent successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $insertSql . "<br>" . mysqli_error($conn);
     }
 }
 
+// Close the connection
 mysqli_close($conn);
 ?>
