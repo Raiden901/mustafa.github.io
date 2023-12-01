@@ -25,13 +25,13 @@ if (mysqli_query($conn, $sql)) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $Name = mysqli_real_escape_string($conn, $_POST['Name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $Message = mysqli_real_escape_string($conn, $_POST['Message']);
+    $Name = mysqli_real_escape_string($conn, $_POST['myName']);
+    $email = mysqli_real_escape_string($conn, $_POST['myemail']);
+    $Message = mysqli_real_escape_string($conn, $_POST['myMessage']);
 
-    $sql = "INSERT INTO contacts (Name, email, Message) VALUES ('$Name', '$email', '$Message')";
+    $sql = "INSERT INTO contacts (myName, myemail, myMessage) VALUES ('$myName', '$myemail', '$myMessage')";
 
-    if (mysqli_query($conn, $sql)) {
+mt    if (mysqli_query($conn, $sql)) {
         echo "Message sent successfully!";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
