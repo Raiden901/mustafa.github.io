@@ -82,6 +82,54 @@ footer {
     </head>
     <body>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinning Text</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0; /* Optional: Set a background color */
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .spinning-text {
+      display: inline-block;
+      animation: spin 5s linear infinite;
+    }
+
+    .red-text {
+      color: red;
+    }
+
+    .centered-text {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="centered-text">
+    <p class="spinning-text">Send to</p>
+    <p class="spinning-text red-text">mustafaaldabbagh09@gmail.com</p>
+  </div>
+
+</body>
+</html>
 
 
 
