@@ -1,110 +1,86 @@
 <!DOCTYPE html>
-<html lang="en"></html>
-<head>
-  <meta charset="utf-8">
-
-<video autoplay muted loop id="myVideo">
-    <source src="images/video_2023-05-13_22-32-18.mp4" type="video/mp4">
-
-  </video>
-
-<style type="text/css">
-body {
-    justify-content: center; 
-    align-items: center;
-    font-size: 110;
-    color: #8b0000;
-  #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
-}
-
-.site-border {
-    text-align:center;
-    width:100%;
-    margin:0px auto;
-    margin-top:100px;}
-.avater {
-    border-radius:50%;
-    height:200px;
-    padding:15px 5px;}
-.location {
-    opacity:0.8;
-    padding:5px;
-    user-select:none;}
-.full-name {
-    font-size:35px;
-    user-select:none;}
-.menu__container {
-max-width: 500px;
-height: 100px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 70px;
-margin-bottom: 70px;
-border-radius: 115px;
-box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-transform: perspective(1000px) rotateX(-45deg) rotateY(0deg) rotateZ(0deg);
-transform-origin: center center 0px;
-transition: all 0.4s ease-out;}
-.menu__container .menu {
-display: flex;
-justify-content: space-around;
-align-items: center;
-max-width: 100%;
-height: 100%;}
-.menu__container .menu a {
-text-decoration: none;
-color: #fff;
-font-size: 35px;
-transition: all 0.1s linear;}
-.menu__container--2 {
-background: linear-gradient(20deg, #20202088 160%, #8ec5fcb7 100%);
-transform: perspective(10000px) rotateX(5deg) rotateY(30deg) rotateZ(0deg);}
-.menu__container--2:hover {
-transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 15px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;}
-
-    </style>
-    </head>
-    <body>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spinning Text</title>
+  <title>Your Page Title</title>
+
   <style>
     body {
       display: flex;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      font-size: 110%;
+      color: #8b0000;
       margin: 0;
-      background-color: #f0f0f0; /* Optional: Set a background color */
     }
 
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .site-border {
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      height: 200px;
+      padding: 15px 5px;
+    }
+
+    .location {
+      opacity: 0.8;
+      padding: 5px;
+      user-select: none;
+    }
+
+    .full-name {
+      font-size: 35px;
+      user-select: none;
+    }
+
+    .menu__container {
+      max-width: 500px;
+      height: 100px;
+      margin: 70px auto;
+      border-radius: 115px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+      transform: perspective(1000px) rotateX(-45deg) rotateY(0deg) rotateZ(0deg);
+      transform-origin: center center 0px;
+      transition: all 0.4s ease-out;
+    }
+
+    .menu__container .menu {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    .menu__container .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 35px;
+      transition: all 0.1s linear;
+    }
+
+    .menu__container--2 {
+      background: linear-gradient(20deg, #20202088 160%, #8ec5fcb7 100%);
+      transform: perspective(10000px) rotateX(5deg) rotateY(30deg) rotateZ(0deg);
+    }
+
+    .menu__container--2:hover {
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     }
 
     .spinning-text {
@@ -118,22 +94,51 @@ footer {
 
     .centered-text {
       text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      font-size: 15px;
+      bottom: 0;
+      position: fixed;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
+
+
+  <video autoplay muted loop id="myVideo">
+    <source src="images/video_2023-05-13_22-32-18.mp4" type="video/mp4">
+  </video>
 
   <div class="centered-text">
     <p class="spinning-text">Send to</p>
     <p class="spinning-text red-text">mustafaaldabbagh09@gmail.com</p>
   </div>
 
+
+
+  <footer>
+ 
+  </footer>
+
 </body>
 </html>
-
-
-
-
-
-</footer>
-</body>
