@@ -1,8 +1,8 @@
 <?php
 $serverName = "localhost";
-$userName = "dfdf@gmaio.oma";
-$password = "qz]58s3mq9U(To41";
-$dbName = "test2_sql";
+$userName = "root";
+$password = "))gSg2Kcug2OItJ1";
+$dbName = "tests.sql";
 
 $conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
