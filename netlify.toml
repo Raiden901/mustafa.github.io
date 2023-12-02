@@ -1,3 +1,3 @@
 [build]
   publish = "path/to/your/frontend"
-  functions = "path/to/your/functions"
+  functions = "submitForm.js"
